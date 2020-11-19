@@ -48,13 +48,14 @@ def ex2(information):
 
 
 def get_me_info():
-   side = 5
-   range = 7
-   for i in range(side):
-       for j in range(range):
-               print("*", end=' ')
-       print()
+    nestedList = [["hello word", ".py", 1, "23.12.2020"],
+                  ["hello word", ".java", 2, "23.11.2020"],
+                  ["hello word", ".c", 3, "23.10.2020"]
+                  ]
+    print('| Soubor | Sufix | Velikost v MB | Naposledy změněno |')
+
+    for item in nestedList:
+        print("|", item[0], "|", item[1], "|", item[2], "|", item[3], "|")
 
 
-
-get_me_info()
+print(get_me_info())
