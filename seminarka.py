@@ -47,15 +47,31 @@ def ex2(information):
     return output
 
 
-def get_me_info():
-    nestedList = [["hello word", ".py", 1, "23.12.2020"],
-                  ["hello word", ".java", 2, "23.11.2020"],
-                  ["hello word", ".c", 3, "23.10.2020"]
-                  ]
-    print('| Soubor | Sufix | Velikost v MB | Naposledy změněno |')
+def get_me_info(path):
+    if not path:
+        path = os.path.abspath(os.getcwd())
 
+    nestedList = [["hello word", ".py", round(1.345346, 3), time.strftime("%a, %d %b %Y %H:%M:%S")],
+                  ["hello word", ".java", round(2.453534, 3), time.strftime("%a, %d %b %Y %H:%M:%S")],
+                  ["hello word", ".c", round(3.9686721, 3), time.strftime("%a, %d %b %Y %H:%M:%S")]
+                  ]
+    print('|--------------------------------- get_me_info -------------------------------------|')
+    print('|-----------------------------------------------------------------------------------|')
+    print('|-----------------------------------------------------------------------------------|')
+    print('|       Soubor       |    Sufix    |   Velikost v MB   |     Naposledy změněno      |')
+    print('|             <jmeno>|   <koncovka>|    <velikost v MB>|               <datum / čas>|')
     for item in nestedList:
         print("|", item[0], "|", item[1], "|", item[2], "|", item[3], "|")
+    print('|-----------------------------------------------------------------------------------|')
+    print('|-----------------------------------------------------------------------------------|')
+    print('|----------------------------<{0}>----------------------------|'.format(
+        time.strftime("%a, %d %b %Y %H:%M:%S")))
 
 
-print(get_me_info())
+# print(get_me_info())
+
+fileNames = os.listdir(os.path.abspath(os.getcwd()))
+for fileName in fileNames:
+    suffix = fileName.split('.', 1)
+    print(type(fileName))
+    #print('Suffix: ' + suffix)
